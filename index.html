@@ -18,6 +18,63 @@
         <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <h1>Calculator</h1>
+    <h1 id="title">CodeFuturist Calculator</h1>
+    <table id="calculator">
+        <tr>
+            <td colspan="3"><input type="text" id="result"></td>
+            <td><input type="button" value="C" id="clr() " onclick="clr()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" id="" onclick="display('1')"></td>
+            <td><input type="button" value="2" id="" onclick="display('2')"></td>
+            <td><input type="button" value="3" id="" onclick="display('3')"></td>
+            <td><input type="button" value="/" id="" onclick="display('/')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" id="" onclick="display('4')"></td>
+            <td><input type="button" value="5" id="" onclick="display('5')"></td>
+            <td><input type="button" value="6" id="" onclick="display('6')"></td>
+            <td><input type="button" value="*" id="" onclick="display('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" id="" onclick="display('7')"></td>
+            <td><input type="button" value="8" id="" onclick="display('8')"></td>
+            <td><input type="button" value="9" id="" onclick="display('9')"></td>
+            <td><input type="button" value="-" id="" onclick="display('-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="." id="" onclick="display('.')"></td>
+            <td><input type="button" value="0" id="" onclick="display('0')"></td>
+            <td><input type="button" value="=" id="" onclick="solve()"></td>
+            <td><input type="button" value="+" id="" onclick="display('+')"></td>
+        </tr>
+    </table>
+    <script>
+        function display(value){
+            document.getElementById("result").value += value;
+        }
+        function accessNumber(event){
+            if(event.key == 0 || event.key == 1 || event.key == 2 || event.key == 3 || event.key == 4 || event.key == 5 || event.key == 6 || event.key == 7 || event.key == 8 || event.key == 9 || event.key == "." || event.key == "/" || event.key == "*" || event.key == "-" || event.key == "+"){
+                document.getElementById("result").value += event.key;
+            }
+        }
+        var calcu = document.getElementById("calculator");
+        calcu.onekeyup = function(event){
+            if(event.keyCode == 13){
+                console.log("Enter");
+                let x = document.getElementById("result").value;
+                console.log(x);
+                solve();
+            }
+        }
+        function solve(){
+            let x = document.getElementById("result").value;
+            let y = math.evaluate(x);
+            document.getElementById("result").value = y;
+        }
+        function clr(){
+            document.getElementById("result").value = " ";
+        }
+    </script>
 </body>
-</html>
+</html> 
